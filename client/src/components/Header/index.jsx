@@ -2,8 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import style from "./Header.module.scss";
 import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { clearToken } from "../../api";
+import { logout } from "../../redux/slices/authSlice";
 
 const Header = (props) => {
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false); // состояние для управления видимостью меню
 
   const handleClick = () => {
@@ -13,6 +20,11 @@ const Header = (props) => {
   const menuClass = classNames(style.navList, {
     [style.hiddenDisplay]: isMenuOpen, // если меню закрыто, добавляем класс скрытия
   });
+
+  const hendleLogout = () => {
+    clearToken();
+    dispatch(logout());
+  };
 
   return (
     <header className={style.headerCover}>
@@ -47,10 +59,8 @@ const Header = (props) => {
               </Link>
             </li>
             <li className={style.navListItem}>
-              <span style={{ color: "white" }}>Hello {0}</span>
-              <button onClick={0} className={style.logout}>
-                Logout
-              </button>
+              <span style={{ color: "white" }}>Hello {user? `${user.firstName} ${user.lastName}` : 'Guest'}</span>
+              <button onClick={hendleLogout} className={style.logout}>Logout</button>
             </li>
           </ul>
         </nav>
