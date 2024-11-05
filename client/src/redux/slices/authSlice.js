@@ -59,6 +59,7 @@ const initialState = {
   user: null,
   isLoading: false,
   error: null,
+  isAuthenticated: false,
 };
 
 const userSlice = createSlice({
@@ -77,6 +78,7 @@ const userSlice = createSlice({
     builder.addCase(login.fulfilled, (state, action) => {
       state.isLoading = false;
       state.user = action.payload;
+      state.isAuthenticated = true;
     });
 
     builder.addCase(login.rejected, (state, action) => {
@@ -91,6 +93,7 @@ const userSlice = createSlice({
     builder.addCase(refresh.fulfilled, (state, action) => {
       state.isLoading = false;
       state.user = action.payload;
+      state.isAuthenticated = true;
     });
 
     builder.addCase(refresh.rejected, (state, action) => {
@@ -105,6 +108,7 @@ const userSlice = createSlice({
     builder.addCase(registration.fulfilled, (state, action) => {
       state.isLoading = false;
       state.user = action.payload;
+      state.isAuthenticated = true;
     });
 
     builder.addCase(registration.rejected, (state, action) => {
