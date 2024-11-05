@@ -8,6 +8,9 @@ import CONSTANTS from "./constants";
 import { useEffect } from "react";
 import Cookies from "js-cookie";
 import { refresh } from "./redux/slices/authSlice";
+import ProtectedRoute from "./components/ProtectedRoute";
+import PrivatePage from "./pages/Private";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +29,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={LoginPage} />
         <Route exact path="/registration" component={RegistrationPage} />
+        <ProtectedRoute exact path="/private" component={PrivatePage}/>
       </Switch>
     </div>
   );

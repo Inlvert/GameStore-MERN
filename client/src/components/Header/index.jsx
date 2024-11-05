@@ -62,6 +62,11 @@ const Header = (props) => {
               <span style={{ color: "white" }}>Hello {user? `${user.firstName} ${user.lastName}` : 'Guest'}</span>
               <button onClick={hendleLogout} className={style.logout}>Logout</button>
             </li>
+            <li className={style.navListItem}>
+              <Link to="/private" className={style.navLink}>
+                Private
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
