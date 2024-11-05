@@ -1,6 +1,5 @@
 const { model } = require("mongoose");
 const { User } = require("../models");
-const e = require("express");
 
 module.exports.createUser = async (req, res, next) => {
   try {

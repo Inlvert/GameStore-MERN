@@ -3,9 +3,9 @@ import Header from "../../components/Header";
 
 const HomePage = (props) => {
   return (
-    <div>
+    <div style={{ backgroundColor: "#242424", height: "100vh" }}>
       <Header />
-      <h1>HomePage</h1>
+      <h1 style={{ color: "white" }}>HomePage</h1>
     </div>
   );
 };
