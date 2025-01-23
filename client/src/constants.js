@@ -1,4 +1,4 @@
-const SERVER_URL = 'https://game-store-mern-wx1r.vercel.app/';
+const SERVER_URL = 'game-store-mern-wx1r.vercel.app/';
 
 const CONSTANTS = {
   PUBLIC_URL: "https://game-store-mern.vercel.app/",
