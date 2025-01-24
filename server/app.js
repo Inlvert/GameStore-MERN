@@ -6,8 +6,10 @@ const cors = require('cors');
 
 const app = express();
 
-app.use(cors());
-
+// app.use(cors());
+app.use(cors({
+  origin: "*"
+}));
 // app.use(cors({
 //   origin: 'https://game-store-mern.vercel.app/',  // Replace with your frontend's URL
 //   methods: 'GET,POST,PUT,DELETE', // You can customize the methods allowed
